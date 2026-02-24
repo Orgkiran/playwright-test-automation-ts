@@ -4,14 +4,16 @@ export default defineConfig({
   testDir: './tests',
   fullyParallel: true,
   forbidOnly: !!process.env.CI,
-  retries: process.env.CI ? 2 : 0,
-  workers: process.env.CI ? 1 : undefined,
+  retries: 1,
+  workers: 4,
   reporter: 'html',
   use: {
-    headless: false,
+    headless: true,
     trace: 'on-first-retry',
     screenshot:'on',
-    video: 'on'
+    video: 'on',
+    viewport: { width: 1280, height: 720 },
+    ignoreHTTPSErrors: true
   },
 
   projects: [
