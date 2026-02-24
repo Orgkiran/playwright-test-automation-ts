@@ -6,6 +6,9 @@ on:
     branches: [ main, feature/* ]
 jobs:
   test:
+    strategy:
+      matrix:
+        shard: [1, 2, 3, 4]
     timeout-minutes: 60
     runs-on: ubuntu-latest
     steps:
@@ -18,7 +21,7 @@ jobs:
     - name: Install Playwright Browsers
       run: npx playwright install chromium
     - name: Run Playwright tests
-      run: npx playwright test
+      run: npx playwright test --shard=${{ matrix.shard }}/4
     - uses: actions/upload-artifact@v4
       if: ${{ !cancelled() }}
       with:
