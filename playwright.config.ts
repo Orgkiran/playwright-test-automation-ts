@@ -21,7 +21,7 @@ export default defineConfig({
 
   projects: [
     {
-      name: 'chromium',
+      name: 'OrangeHRM - Tests',
       use: { ...devices['Desktop Chrome'] },
     }
   ]

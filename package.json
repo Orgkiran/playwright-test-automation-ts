@@ -2,7 +2,11 @@
   "name": "demo-project",
   "version": "1.0.0",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "tests": "npx playwright test",
+    "generate:report": "allure generate allure-results --clean -o allure-report",
+    "open:report": "allure open allure-report"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
